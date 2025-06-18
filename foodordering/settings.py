@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products'
+    'products',
+    'users',
+    'orders'
 ]
 
 MIDDLEWARE = [
@@ -117,7 +119,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = '/users/login/'          # Redirects to login if not logged in
+LOGIN_REDIRECT_URL = '/product_list/'             # After login, go to product list
+LOGOUT_REDIRECT_URL = '/users/login/'  # After logout, go to login page
